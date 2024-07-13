@@ -11,19 +11,26 @@ function comprar() {
 function atualizarQuantidadeDisponivel(tipoIngresso, quantidade) {
   if(tipoIngresso === 'inferior') {
     let campoQuantidadeDisponivel = document.getElementById('qtd-inferior')
-    let quantidadeAtual = parseInt(campoQuantidadeDisponivel.textContent)
-    campoQuantidadeDisponivel.textContent = quantidadeAtual - quantidade
+    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
   }
 
   if(tipoIngresso === 'superior') {
-    let campoQuantidadeSuperior = document.getElementById('qtd-superior')
-    let quantidadeAtual = parseInt(campoQuantidadeSuperior.textContent)
-    campoQuantidadeSuperior.textContent = quantidadeAtual - quantidade
+    let campoQuantidadeDisponivel = document.getElementById('qtd-superior')
+    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
   }
 
   if(tipoIngresso === 'pista') {
-    let campoQuantidadeSuperior = document.getElementById('qtd-pista')
-    let quantidadeAtual = parseInt(campoQuantidadeSuperior.textContent)
-    campoQuantidadeSuperior.textContent = quantidadeAtual - quantidade
+    let campoQuantidadeDisponivel = document.getElementById('qtd-pista')
+    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
+  }
+
+  function atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade) {
+    let quantidadeAtual = parseInt(campoQuantidadeDisponivel.textContent)
+
+    if(quantidade > quantidadeAtual) {
+      alert('Não é possível realizar a compra! Quantidade de ingressos indisponível.')
+    } else {
+      campoQuantidadeDisponivel.textContent = quantidadeAtual - quantidade
+    }
   }
 }
