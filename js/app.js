@@ -3,28 +3,33 @@ function comprar() {
   let tipoIngresso = document.getElementById('tipo-ingresso').value
   let quantidade = parseInt(campoQuantidade.value)
 
-  atualizarQuantidadeDisponivel(tipoIngresso, quantidade)
+  if (isNaN(quantidade) || quantidade <= 0) {
+    alert('Por favor, insira uma quantidade válida.');
+    return;
+}
+
+  validarEAtualizarQuantidadeDisponivel(tipoIngresso, quantidade)
 
   campoQuantidade.value = ''
 }
 
-function atualizarQuantidadeDisponivel(tipoIngresso, quantidade) {
+function validarEAtualizarQuantidadeDisponivel(tipoIngresso, quantidade) {
   if(tipoIngresso === 'inferior') {
     let campoQuantidadeDisponivel = document.getElementById('qtd-inferior')
-    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
+    atualizarQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
   }
 
   if(tipoIngresso === 'superior') {
     let campoQuantidadeDisponivel = document.getElementById('qtd-superior')
-    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
+    atualizarQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
   }
 
   if(tipoIngresso === 'pista') {
     let campoQuantidadeDisponivel = document.getElementById('qtd-pista')
-    atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
+    atualizarQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade)
   }
 
-  function atualizarCampoQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade) {
+  function atualizarQuantidadeDisponivel(campoQuantidadeDisponivel, quantidade) {
     let quantidadeAtual = parseInt(campoQuantidadeDisponivel.textContent)
 
     if(quantidade > quantidadeAtual) {
