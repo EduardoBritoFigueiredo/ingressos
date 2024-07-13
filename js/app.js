@@ -28,9 +28,10 @@ function atualizarQuantidadeDisponivel(tipoIngresso, quantidade) {
     let quantidadeAtual = parseInt(campoQuantidadeDisponivel.textContent)
 
     if(quantidade > quantidadeAtual) {
-      alert('Não é possível realizar a compra! Quantidade de ingressos indisponível.')
+      alert('Não é possível realizar a compra! Quantidade de ingressos indisponível para o tipo de ingresso selecionado.')
     } else {
       campoQuantidadeDisponivel.textContent = quantidadeAtual - quantidade
+      alert('Compra realizada com sucesso!')
     }
   }
 }
