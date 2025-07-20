@@ -8,7 +8,7 @@ Desenvolvimento de um aplicativo web de compra de ingressos online usando Javasc
 
 ![snapshot do aplicativo](/assets/PNG/snapshot%20ingressos.png)
 
-Acesse o aplicativo ![aqui][https://eduardobritofigueiredo.github.io/ingressos] para ver como ficou.
+Acesse o aplicativo ![aqui](https://eduardobritofigueiredo.github.io/ingressos) para ver como ficou.
 
 ## TECHNOLOGIES
 
